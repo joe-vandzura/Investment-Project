@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 function InvestmentForm() {
-  const [currentSavings, setCurrentSavings] = useState();
-  const [yearlySavings, setyearlySavings] = useState();
-  const [expextedInterest, setexpextedInterest] = useState();
-  const [investmentDuration, setinvestmentDuration] = useState();
+  const [currentSavingsInput, setCurrentSavings] = useState();
+  const [yearlyContributionInput, setyearlySavings] = useState();
+  const [expextedInterestInput, setexpextedInterest] = useState();
+  const [investmentDurationInput, setinvestmentDuration] = useState();
 
   const savingsHandler = (e) => {
     setCurrentSavings(e.target.value);
@@ -22,17 +22,19 @@ function InvestmentForm() {
     setinvestmentDuration(e.target.value);
   }
 
-  const calculateHandler = (userInput) => {
+  const calculateHandler = (event) => {
+
+    event.preventDefault();
 
         // Should be triggered when form is submitted
         // You might not directly want to bind it to the submit event on the form though...
     
         const yearlyData = []; // per-year results
     
-        let currentSavings = +userInput['current-savings']; // feel free to change the shape of this input object!
-        const yearlyContribution = +userInput['yearly-contribution']; // as mentioned: feel free to change the shape...
-        const expectedReturn = +userInput['expected-return'] / 100;
-        const duration = +userInput['duration'];
+        let currentSavings = currentSavingsInput; // feel free to change the shape of this input object!
+        const yearlyContribution = yearlyContributionInput; // as mentioned: feel free to change the shape...
+        const expectedReturn = expextedInterestInput / 100;
+        const duration = investmentDurationInput;
     
         // The below code calculates yearly results (total savings, interest etc)
         for (let i = 0; i < duration; i++) {
@@ -45,9 +47,7 @@ function InvestmentForm() {
             savingsEndOfYear: currentSavings,
             yearlyContribution: yearlyContribution,
           });
-        }
-        console.log(userInput);
-    
+        }    
         // do something with yearlyData ...
       };
 
