@@ -3,7 +3,6 @@ import React, { useState } from "react";
 function InvestmentForm() {
     const calculateHandler = (userInput) => {
 
-        console.log("Working");
         // Should be triggered when form is submitted
         // You might not directly want to bind it to the submit event on the form though...
     
