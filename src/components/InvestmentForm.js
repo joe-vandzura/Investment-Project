@@ -29,7 +29,7 @@ function InvestmentForm() {
         // Should be triggered when form is submitted
         // You might not directly want to bind it to the submit event on the form though...
     
-        const yearlyData = []; // per-year results
+        let yearlyData = []; // per-year results
     
         let currentSavings = currentSavingsInput; // feel free to change the shape of this input object!
         const yearlyContribution = yearlyContributionInput; // as mentioned: feel free to change the shape...
@@ -50,7 +50,15 @@ function InvestmentForm() {
         }    
         // do something with yearlyData ...
 
-        yearlyData.forEach();
+        yearlyData = yearlyData.map( obj => {
+          return (
+          <tr>
+            <td>{obj.year}</td>
+            <td>{obj.savingsEndOfYear}</td>
+            <td>{obj.yearlyInterest}</td>
+          </tr>
+        )});
+        console.log(yearlyData);
       };
 
     return (
