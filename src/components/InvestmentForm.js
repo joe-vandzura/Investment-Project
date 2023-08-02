@@ -49,6 +49,8 @@ function InvestmentForm() {
           });
         }    
         // do something with yearlyData ...
+
+        yearlyData.forEach();
       };
 
     return (
