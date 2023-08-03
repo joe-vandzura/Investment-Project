@@ -9,7 +9,7 @@ function App() {
   const getData = (data) => {
     setDataArray(data.map( obj => {
       return (
-      <tr>
+      <tr key={obj.year}>
         <td>{obj.year}</td>
         <td>{obj.savingsEndOfYear}</td>
         <td>{obj.yearlyInterest}</td>
