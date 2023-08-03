@@ -4,11 +4,24 @@ import Header from './components/Header';
 
 function App() {
 
+  const [dataArray, setDataArray] = useState([]);
+
+  const getData = (data) => {
+    setDataArray(data.map( obj => {
+      return (
+      <tr>
+        <td>{obj.year}</td>
+        <td>{obj.savingsEndOfYear}</td>
+        <td>{obj.yearlyInterest}</td>
+      </tr>
+    )}));
+  };
+
   return (
     <div>
       <Header />
 
-      <InvestmentForm></InvestmentForm>
+      <InvestmentForm dataFunction={getData}></InvestmentForm>
 
       {/* Todo: Show below table conditionally (only once result data is available) */}
       {/* Show fallback text if no data is available */}
@@ -31,6 +44,7 @@ function App() {
             <td>TOTAL INTEREST GAINED</td>
             <td>TOTAL INVESTED CAPITAL</td>
           </tr>
+          {dataArray}
         </tbody>
       </table>
     </div>

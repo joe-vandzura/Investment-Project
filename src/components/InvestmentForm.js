@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function InvestmentForm() {
+function InvestmentForm(props) {
   const [currentSavingsInput, setCurrentSavings] = useState();
   const [yearlyContributionInput, setyearlySavings] = useState();
   const [expextedInterestInput, setexpextedInterest] = useState();
@@ -50,16 +50,8 @@ function InvestmentForm() {
         }    
         // do something with yearlyData ...
 
-        yearlyData = yearlyData.map( obj => {
-          return (
-          <tr>
-            <td>{obj.year}</td>
-            <td>{obj.savingsEndOfYear}</td>
-            <td>{obj.yearlyInterest}</td>
-          </tr>
-        )});
-        console.log(yearlyData);
-      };
+        props.dataFunction(yearlyData);
+      }
 
     return (
     
